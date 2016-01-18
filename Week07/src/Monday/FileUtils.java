@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 
-public class FileUtils {
+public final class FileUtils {
 	private static FileUtils instance = null;
 
 	private FileUtils() {
@@ -23,10 +23,10 @@ public class FileUtils {
 
 	public String readFrom(File file) throws IOException {
 		StringBuilder result = new StringBuilder();
-		BufferedReader reader = null;
+		BufferedReader reader;
 		try {
 			reader = new BufferedReader(new FileReader(file));
-			String line = null;
+			String line;
 			while ((line = reader.readLine()) != null) {
 				result.append(line);
 				result.append(System.lineSeparator());
