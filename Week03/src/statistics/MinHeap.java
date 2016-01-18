@@ -71,16 +71,16 @@ public class MinHeap<T extends Comparable<T>> {
 	}
 
 	private void bubbleDownRoot() {
-		int i = 0;
-		int smallestChildIndex = getSmallestChildIndex(i);
+		int index = 0;
+		int smallestChildIndex = getSmallestChildIndex(index);
 		while (smallestChildIndex != 0) {
-			if (items.get(i).compareTo(items.get(smallestChildIndex)) == 1) {
-				Collections.swap(items, i, smallestChildIndex);
+			if (items.get(index).compareTo(items.get(smallestChildIndex)) == 1) {
+				Collections.swap(items, index, smallestChildIndex);
 			} else {
 				break;
 			}
-			i = smallestChildIndex;
-			smallestChildIndex = getSmallestChildIndex(i);
+			index = smallestChildIndex;
+			smallestChildIndex = getSmallestChildIndex(index);
 		}
 	}
 }

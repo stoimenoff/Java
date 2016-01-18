@@ -1,5 +1,6 @@
 package statistics;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class StatisticalCalculator implements Statistics {
