@@ -1,0 +1,12 @@
+package Wednesday;
+
+public class BST <T extends Comparable> {
+	class Node {
+		private T value;
+		private int depth;
+		private int height;
+		private Node<T> left;
+		private Node<T> right;
+		
+	};
+}

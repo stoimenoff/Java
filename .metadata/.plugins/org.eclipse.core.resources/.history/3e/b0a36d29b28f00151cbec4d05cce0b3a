@@ -1,0 +1,36 @@
+package week01;
+
+public class Task29 {
+	public static void main(String[] args) {
+		System.out.println(makeHackFromHalf(20, 5));
+	}
+	public static boolean isHack(int n) {
+		StringBuilder binary = new StringBuilder();
+		do {
+			if( (n & 1) == 1) {
+			binary.append('1');
+			}
+			else {
+				binary.append('0');
+			}
+			n >>= 1;
+		}
+		while(n != 0);
+		binary.reverse();
+		System.out.println(binary.toString());
+		//TODO
+		return true;
+	}
+	public static int makeHackFromHalf(int n, int bitLen){
+		int hack = 0;
+		hack = n;
+		hack <<= 1;
+		hack += 1;
+		hack <<= bitLen;
+		for(int i = bitLen - 1; i >= 0; i--) {
+			hack += ( (n & 1) << i);
+			n >>= 1;
+		}
+		return hack;
+	}
+}

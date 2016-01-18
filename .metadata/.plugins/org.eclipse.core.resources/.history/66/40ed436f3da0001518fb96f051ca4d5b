@@ -1,0 +1,10 @@
+package Geometry;
+
+public class Rectangle {
+	
+	private Point upperLeft;
+	private Point lowerDown;
+	Rectangle(Point p1, Point p2) {
+		
+	}
+}

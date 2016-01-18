@@ -1,0 +1,16 @@
+package week01;
+
+public class Task10 {
+	public static void main(String[] args){
+		//System.out.println(histogram());
+	}
+	public static int[] histogram(short[][] image){
+		int[] histogram = new int[256];
+		for(int i = 0; i < image.length; i++){
+			for(j = 0; j < image[i].length; j++){
+				
+			}
+		}
+		return histogram;
+	}
+}

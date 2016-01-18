@@ -1,0 +1,6 @@
+package Geometry;
+
+public class PointPoint extends AbstractPoint {
+
+
+}

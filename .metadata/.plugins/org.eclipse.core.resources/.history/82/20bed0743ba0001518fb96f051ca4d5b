@@ -1,0 +1,17 @@
+package Geometry;
+
+public class LineSegment {
+	private Point start;
+	private Point end;
+	
+	LineSegment(Point p1, Point p2) {
+		if (p1.equals(p2)) {
+			System.out.println("Cannot create a line segment with zero length !");
+			return;
+		} else {
+			start = new Point(p1);
+			end = new Point(p2);
+		}
+	}
+	
+}

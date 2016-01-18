@@ -1,0 +1,9 @@
+package Geometry;
+
+public class LineSegment {
+	private Point start;
+	private Point end;
+	LineSegment(Point p1, Point p2) {
+		
+	}
+}

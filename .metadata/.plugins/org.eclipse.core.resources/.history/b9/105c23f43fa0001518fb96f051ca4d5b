@@ -1,0 +1,35 @@
+package Geometry;
+
+public class Rectangle {
+
+	private Point upperLeft;
+	private Point lowerRight;
+
+	Rectangle(Point p1, Point p2) {
+		if (p1 == null || p2 == null) {
+			return;
+		}
+		if (p1.getX() >= p2.getX() || p1.getY() <= p2.getY()) {
+			System.out.println("Points are on the same edge !");
+			return;
+		}
+		upperLeft = new Point(p1);
+		lowerRight = new Point(p2);
+	}
+	
+	Rectangle (Rectangle other) {
+		
+	}
+	
+	public Point getUpperLeft() {
+		return this.upperLeft;
+	}
+	
+	public Point getLowerRight() {
+		return this.lowerRight;
+	}
+	
+	public Point getUpperLeft() {
+		return new Point();
+	}
+}

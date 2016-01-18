@@ -1,0 +1,61 @@
+package week01;
+
+public class Task29 {
+	public static void main(String[] args) {
+		System.out.println(nextHack(8031));
+	}
+	public static boolean isHack(int n) {
+		int bitLen = bitLen(n);
+		if ((bitLen & 1) == 0) {
+			return false;
+		}
+		else {
+			int nCopy = n;
+			int hack = makeHackFromHalf (n >> ((bitLen + 1) / 2) );
+			return (hack == n);
+		}
+	}
+	public static int nextHack(int n) {
+		// check if maxint
+		int bitLen = bitLen(n);
+		int hack = n;
+		if ((bitLen & 1) == 0) {
+			hack = 1;
+			hack <<= bitLen / 2;
+			hack += 1;
+			hack <<= bitLen / 2;
+			hack += 1;
+		} else {
+			int hackHalf = n >> ((bitLen + 1) / 2);
+			hack = makeHackFromHalf(hackHalf);
+			while (hack <= n) {
+				hackHalf += 1;
+				hack = makeHackFromHalf(hackHalf);
+			}
+		}
+		return hack;
+	}
+
+	public static int bitLen(int n) {
+		int bitLen = 0, nCopy = n;
+		while (nCopy > 0) {
+			nCopy >>= 1;
+			bitLen += 1;
+		}
+		return bitLen;
+	}
+
+	public static int makeHackFromHalf(int n) {
+		int bitLen = bitLen(n);
+		int hack = 0;
+		hack = n;
+		hack <<= 1;
+		hack += 1;
+		hack <<= bitLen;
+		for (int i = bitLen - 1; i >= 0; i--) {
+			hack += ((n & 1) << i);
+			n >>= 1;
+		}
+		return hack;
+	}
+}

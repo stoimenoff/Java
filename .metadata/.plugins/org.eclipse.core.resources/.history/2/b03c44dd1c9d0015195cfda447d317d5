@@ -1,0 +1,8 @@
+package Wednesday;
+
+public class CheckBrackets {
+	public static boolean checkbrackets(String input) {
+		
+	}
+		
+}

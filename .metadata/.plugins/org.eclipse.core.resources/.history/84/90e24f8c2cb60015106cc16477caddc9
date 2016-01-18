@@ -1,0 +1,9 @@
+package Wednesday;
+
+public class TestBST {
+	
+	public static void main(String[] args) {
+		BST<Integer> tree = new BST<Integer>();
+		tree.add(5);
+	}
+}

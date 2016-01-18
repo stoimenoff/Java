@@ -1,0 +1,11 @@
+package Wednesday;
+
+import java.util.ArrayList;
+
+public class TestSorting {
+	public static void main(String[] args) {
+		int[] l = {1,2,3,4};
+		FunnyArraySorter sorter = new FunnyArraySorter(2);
+		System.out.println(sorter.pivotSubtractionSort(l););
+	}
+}

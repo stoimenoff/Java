@@ -1,0 +1,8 @@
+package Monday;
+
+public class Backpack<T> {
+	private T obj;
+	Backpack(T obj) {
+		
+	}
+}

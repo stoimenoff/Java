@@ -1,0 +1,12 @@
+package Monday;
+
+public class Backpack<T> {
+	private T object;
+	
+	Backpack(T object) {
+		this.object = object;
+	}
+	public T getObject() {
+		return object;
+	}
+}

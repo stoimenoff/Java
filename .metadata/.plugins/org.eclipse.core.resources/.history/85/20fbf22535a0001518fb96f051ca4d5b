@@ -1,0 +1,11 @@
+package Geometry;
+
+public class Point {
+	public final static int ORIGIN_X = 0;
+	public final static int ORIGIN_Y = 0;
+	private double x;
+	private double y;
+	Point() {
+		
+	}
+}

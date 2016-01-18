@@ -1,0 +1,10 @@
+package Geometry;
+
+public class PointPoint extends AbstractPoint{
+
+	@Override
+	protected int getID() {
+		return 10;
+	}
+	
+}

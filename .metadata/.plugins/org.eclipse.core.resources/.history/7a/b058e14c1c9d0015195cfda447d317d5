@@ -1,0 +1,15 @@
+package Wednesday;
+
+import java.util.Collection;
+import java.util.HashMap;
+
+public class FirstUnique {
+	public static <T> T getFirstUnique(Collection<T> items) {
+		HashMap<T, Integer> map = new HashMap<T, Integer>();
+		for (T item : items) {
+
+		}
+
+		return null;
+	}
+}

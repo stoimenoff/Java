@@ -1,0 +1,13 @@
+package Geometry;
+
+public class Rectangle {
+	
+	private Point upperLeft;
+	private Point lowerDown;
+	Rectangle(Point p1, Point p2) {
+		if (p1.getX() == p2.getX()) {
+			
+		}
+		//upperLeft = new Point(p1);
+	}
+}

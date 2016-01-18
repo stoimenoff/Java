@@ -1,0 +1,37 @@
+package Wednesday;
+
+public class BST <T extends Comparable> {
+	class Node {
+		private T value;
+		private int depth;
+		private int height;
+		private Node left;
+		private Node right;
+		private Node parent;
+		
+		Node(T val) {
+			this.value = val;
+			this.depth = 0;
+			this.height = 0;
+			this.left = null;
+			this.right = null;
+			this.parent = null;
+		}
+		
+		public void setValue(T val) {
+			this.value = val;
+		}
+		
+		public void setParent(Node par) {
+			this.parent = par;
+		}
+		
+		public void setLeft(Node left) {
+			this.left = left;
+		}
+		
+		public void setRight(Node right) {
+			this.right = right;
+		}
+	};
+}

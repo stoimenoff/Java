@@ -1,0 +1,7 @@
+package Geometry;
+
+public class Point {
+	protected void() {
+		return 0;
+	}
+}

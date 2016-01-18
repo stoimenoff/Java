@@ -1,0 +1,25 @@
+package Wednesday;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class FunnyArraySorter {
+	int pivot;
+	public static void reverseSort(List<Integer> list) {
+			Collections.sort(list, new Comparator<Integer>() {
+				public int compare(Integer left, Integer right) 
+			    {
+			      return -1 * Integer.compare(left, right);
+			    }
+			});
+	}
+	public static void pivotSubtractionSort(List<Integer> list) {
+		Collections.sort(list, new Comparator<Integer>() {
+			public int compare(Integer left, Integer right) 
+		    {
+		      return -1 * Integer.compare(left, right);
+		    }
+		});
+}
+}

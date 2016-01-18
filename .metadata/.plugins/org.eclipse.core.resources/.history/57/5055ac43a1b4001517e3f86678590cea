@@ -1,0 +1,28 @@
+package Wednesday;
+
+public class BST <T extends Comparable<T>> {
+	class Node implements Comparable<Node> {
+		public T value;
+		public int depth;
+		public int height;
+		public Node left;
+		public Node right;
+		public Node parent;
+		
+		Node(T val) {
+			this.value = val;
+			this.depth = 0;
+			this.height = 0;
+			this.left = null;
+			this.right = null;
+			this.parent = null;
+		}
+
+		@Override
+		public int compareTo(BST<T>.Node o) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
+	};
+}

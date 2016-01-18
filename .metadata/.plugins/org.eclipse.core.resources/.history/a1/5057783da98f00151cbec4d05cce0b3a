@@ -1,0 +1,14 @@
+package week01;
+
+public class Task29 {
+	public static void main(String[] args) {
+		
+	}
+	public static boolean isHack(int n) {
+		int nCopy = n;
+		while(nCopy > 0) {
+			
+		}
+		return true;
+	}
+}

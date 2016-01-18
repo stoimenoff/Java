@@ -1,0 +1,12 @@
+package Monday;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TestFileOperations {
+	@Test
+	public void testRead() {
+		String expected = "asd";
+	}
+}

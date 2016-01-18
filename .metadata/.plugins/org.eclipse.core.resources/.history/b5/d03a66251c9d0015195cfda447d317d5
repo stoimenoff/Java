@@ -1,0 +1,6 @@
+package Wednesday;
+
+public class FirstUnique {
+	public static <T> T getFirstUnique(Collection<T> items) {
+
+}

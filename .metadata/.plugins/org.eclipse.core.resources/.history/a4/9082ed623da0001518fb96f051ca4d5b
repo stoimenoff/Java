@@ -1,0 +1,6 @@
+package Geometry;
+
+public class Rectangle {
+	
+	private Point upperLeft;
+}

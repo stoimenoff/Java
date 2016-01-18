@@ -1,0 +1,12 @@
+package week01;
+
+public class Task11 {
+	public static void main(String[] args){
+		//System.out.println();
+	}
+	public static long pow(int a, int b){
+		long aB = 1;
+		
+		return aB;
+	}
+}

@@ -1,0 +1,16 @@
+package week01;
+
+public class Task09 {
+	public static void main(String[] args){
+		//System.out.println(5);
+	}
+	public static long getLargestPalindrome(long n){
+		long palindrome = 1, nCopy = n, nNumDigits = 0;
+		while(nCopy > 0){
+			nNumDigits += 1;
+			nCopy /= 10;
+		}
+		
+		return palindrome;
+	}
+}

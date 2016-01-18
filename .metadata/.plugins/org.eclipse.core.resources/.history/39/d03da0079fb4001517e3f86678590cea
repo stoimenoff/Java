@@ -1,0 +1,10 @@
+package Wednesday;
+
+public class BST {
+	class Node<T> {
+		private T value;
+		private int depth;
+		private int height;
+		
+	}
+}
