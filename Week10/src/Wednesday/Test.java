@@ -17,10 +17,10 @@ public class Test {
 		for (int producers = 1; producers <= 8; producers++) {
 
 			for (int consumers = 1; consumers <= 8; consumers++) {
-				
+
 				tool.reset(elements, capacity, producers, consumers);
-				//measures.add(tool.measure());
-				measures.add(tool.measureAverage(5));
+				measures.add(tool.measure());
+				// measures.add(tool.measureAverage(5));
 				System.out.println(measures.get(measures.size() - 1).getFullInfo());
 			}
 			System.out.println();
@@ -32,5 +32,6 @@ public class Test {
 		for (Measurement m : measures) {
 			System.out.println(m);
 		}
+
 	}
 }

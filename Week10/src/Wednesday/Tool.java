@@ -37,7 +37,7 @@ public class Tool {
 		ArrayList<Future<Integer>> produced = new ArrayList<Future<Integer>>();
 		ArrayList<Future<Integer>> consumed = new ArrayList<Future<Integer>>();
 
-		ExecutorService pool = Executors.newCachedThreadPool();
+		ExecutorService pool = Executors.newFixedThreadPool(mProducersCount + mConsumersCount);
 
 		for (int i = 0; i < mProducersCount; i++) {
 			Callable<Integer> producer = new Producer(memory);
@@ -45,10 +45,11 @@ public class Tool {
 			produced.add(elementsProduced);
 		}
 		for (int i = 0; i < mConsumersCount; i++) {
-			Callable<Integer> producer = new Consumer(memory);
-			Future<Integer> elementsConsumed = pool.submit(producer);
+			Callable<Integer> consumer = new Consumer(memory);
+			Future<Integer> elementsConsumed = pool.submit(consumer);
 			consumed.add(elementsConsumed);
 		}
+		pool.shutdown();
 		// get producers work
 		int[] producersWork = new int[mProducersCount];
 		int i = 0;

@@ -35,8 +35,9 @@ public class Memory<T> {
 				notFull.await();
 			}
 			items[mToPut] = element;
-			if (++mToPut == items.length)
+			if (++mToPut == items.length) {
 				mToPut = 0;
+			}
 			counter++;
 			notEmpty.signal();
 		} finally {
@@ -51,8 +52,9 @@ public class Memory<T> {
 				notEmpty.await();
 			}
 			Object element = items[mToTake];
-			if (++mToTake == items.length)
+			if (++mToTake == items.length) {
 				mToTake = 0;
+			}
 			counter--;
 			notFull.signal();
 			return element;
