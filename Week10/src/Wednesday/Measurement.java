@@ -122,28 +122,28 @@ public class Measurement implements Comparable<Measurement> {
 		//get average
 		int elements = measures.get(0).getElements();
 		int capacity = measures.get(0).getCapacity();
-		long time = 0;
-		int[] producers = new int[prodSize];
-		int[] consumers = new int[consSize];
+		long averageTime = 0;
+		int[] averageProducersWork = new int[prodSize];
+		int[] averageConsumersWork = new int[consSize];
 		
 		for (int i = 0; i < size; i++) {
-			time += measures.get(i).getTime();
+			averageTime += measures.get(i).getTime();
 			for (int j = 0; j < prodSize; j++) {
-				producers[j] += measures.get(i).getProducerWork(j);
+				averageProducersWork[j] += measures.get(i).getProducerWork(j);
 			}
 			for (int j = 0; j < consSize; j++) {
-				consumers[j] += measures.get(i).getConsumerWork(j);
+				averageConsumersWork[j] += measures.get(i).getConsumerWork(j);
 			}
 		}
 		
-		time /= size;
+		averageTime /= size;
 		for (int j = 0; j < prodSize; j++) {
-			producers[j] /= size;
+			averageProducersWork[j] /= size;
 		}
 		for (int j = 0; j < consSize; j++) {
-			consumers[j] /= size;
+			averageConsumersWork[j] /= size;
 		}
-		return new Measurement(elements, capacity, producers, consumers, time, size);
+		return new Measurement(elements, capacity, averageProducersWork, averageConsumersWork, averageTime, size);
 	}
 
 	private static boolean canGetAverage(Measurement m1, Measurement m2) {

@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class MeasurementsArray extends ArrayList<Measurement> {
+	
+	private static final long serialVersionUID = 1L;
 
 	public void sortByTime() {
 		Collections.sort(this);
@@ -52,7 +54,7 @@ public class MeasurementsArray extends ArrayList<Measurement> {
 		}
 	}
 	
-	public void printAll() {
+	public void printFull() {
 		for (Measurement m : this) {
 			System.out.println(m.getFullInfo());
 		}
