@@ -9,9 +9,11 @@ public class Producer implements Runnable, Callable<Integer> {
 	static int elements = 0;
 
 	static boolean toProduce(int size) {
-		if (size > 0 && elements == 0) {
-			elements = size;
-			return true;
+		if (size > 0) {
+			if (elements == 0 || mToProduce.getAndAdd(0) == elements) {
+				elements = size;
+				return true;
+			}
 		}
 		return false;
 	}
