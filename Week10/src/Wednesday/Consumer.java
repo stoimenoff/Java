@@ -1,5 +1,4 @@
 package Wednesday;
-
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -10,7 +9,7 @@ public class Consumer implements Runnable, Callable<Integer> {
 
 	static boolean toConsume(int size) {
 		if (size > 0) {
-			if (elements == 0 || mToConsume.getAndAdd(0) == elements) {
+			if (elements == 0 || mToConsume.getAndAdd(0) >= elements) {
 				elements = size;
 				reset();
 				return true;

@@ -10,7 +10,7 @@ public class Producer implements Runnable, Callable<Integer> {
 
 	static boolean toProduce(int size) {
 		if (size > 0) {
-			if (elements == 0 || mToProduce.getAndAdd(0) == elements) {
+			if (elements == 0 || mToProduce.getAndAdd(0) >= elements) {
 				elements = size;
 				reset();
 				return true;

@@ -28,6 +28,10 @@ public class Tool {
 	}
 
 	public Measurement measure() throws InterruptedException, ExecutionException {
+
+		Producer.toProduce(mElements);
+		Consumer.toConsume(mElements);
+		
 		long start = System.currentTimeMillis();
 
 		ArrayList<Future<Integer>> produced = new ArrayList<Future<Integer>>();
@@ -64,6 +68,14 @@ public class Tool {
 		// create measurement object
 		Measurement m = new Measurement(mElements, mCapacity, producersWork, consumersWork, delta);
 		return m;
+	}
+	
+	public Measurement measureAverage(int measurementsCount) throws InterruptedException, ExecutionException {
+		ArrayList<Measurement> measures = new ArrayList<Measurement>();
+		for (int i = 0; i < measurementsCount; i++) {
+			measures.add(measure());
+		}
+		return Measurement.getAverage(measures);
 	}
 
 }
