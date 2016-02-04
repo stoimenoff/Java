@@ -6,13 +6,13 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Memory<T> {
 
-	final Lock lock;
-	final Condition notFull;
-	final Condition notEmpty;
+	private final Lock lock;
+	private final Condition notFull;
+	private final Condition notEmpty;
 
-	final Object[] items;
+	private final Object[] items;
 
-	int mToPut, mToTake, counter;
+	private int mToPut, mToTake, counter;
 
 	Memory(int size) {
 		if (size <= 0) {
