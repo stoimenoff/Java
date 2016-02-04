@@ -23,7 +23,7 @@ public final class FileUtils {
 
 	public String readFrom(File file) throws IOException {
 		StringBuilder result = new StringBuilder();
-		BufferedReader reader;
+		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new FileReader(file));
 			String line;

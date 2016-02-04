@@ -1,7 +1,5 @@
 package Wednesday;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.concurrent.ExecutionException;
 
 public class Test {
@@ -12,7 +10,7 @@ public class Test {
 
 		Tool tool = new Tool(elements, capacity, 1, 1);
 
-		ArrayList<Measurement> measures = new ArrayList<Measurement>();
+		MeasurementsArray measures = new MeasurementsArray();
 
 		for (int producers = 1; producers <= 8; producers++) {
 
@@ -27,11 +25,10 @@ public class Test {
 		}
 
 		// sort and print measurements
-		Collections.sort(measures);
+		//measures.sortByConsumers();
+		measures.sortByTime();
 		System.out.println("\nSorted: ");
-		for (Measurement m : measures) {
-			System.out.println(m);
-		}
+		measures.print();
 
 	}
 }
