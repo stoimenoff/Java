@@ -12,6 +12,7 @@ public class Consumer implements Runnable, Callable<Integer> {
 		if (size > 0) {
 			if (elements == 0 || mToConsume.getAndAdd(0) == elements) {
 				elements = size;
+				reset();
 				return true;
 			}
 		}

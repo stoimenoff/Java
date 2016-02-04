@@ -16,11 +16,7 @@ public class Tool {
 	private Memory<Integer> memory;
 
 	Tool(int elements, int capacity, int prod, int cons) {
-		mCapacity = capacity;
-		mProducersCount = prod;
-		mConsumersCount = cons;
-		mElements = elements;
-		memory = new Memory<Integer>(capacity);
+		reset(elements, capacity, prod, cons);
 	}
 
 	public void reset(int elements, int capacity, int prod, int cons) {
