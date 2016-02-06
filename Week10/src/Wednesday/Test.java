@@ -20,7 +20,7 @@ public class Test {
 
 				tool.reset(elements, capacity, producers, consumers);
 				measures.add(tool.measure());
-				// measures.add(tool.measureAverage(10));
+				//measures.add(tool.measureAverage(10));
 				System.out.println(measures.get(measures.size() - 1).getFullInfo());
 			}
 			System.out.println();

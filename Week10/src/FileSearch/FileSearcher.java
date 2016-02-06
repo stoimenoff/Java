@@ -46,6 +46,7 @@ public class FileSearcher implements Callable<Set<Match>> {
 				row += 1;
 			}
 		} catch (IOException x) {
+			//System.out.println("Cannot open file.");
 		}
 		//System.out.println("Finished searching file: " + file);
 	}

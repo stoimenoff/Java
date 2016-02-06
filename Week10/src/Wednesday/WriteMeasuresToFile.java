@@ -11,7 +11,7 @@ public class WriteMeasuresToFile {
 
 	public static void write(MeasurementsArray measures) {
 		// write to file
-		Path pathToFile = Paths.get("/home/stoimenoff/Desktop/measure.txt");
+		Path pathToFile = Paths.get("/home/stoimenoff/Desktop/measure2.txt");
 		BufferedWriter fileWriter = null;
 		try {
 			fileWriter = Files.newBufferedWriter(pathToFile, Charset.defaultCharset());
