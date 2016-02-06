@@ -2,6 +2,7 @@ package FileSearch;
 
 import java.nio.file.Path;
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -24,8 +25,7 @@ public class FilesQueue {
 		}
 		counter = new AtomicInteger(0);
 		capacity = size;
-		lock = new ReentrantLock(/* true */); // make it true and lose
-												// performance
+		lock = new ReentrantLock(/* true */);
 		notFull = lock.newCondition();
 		notEmpty = lock.newCondition();
 		items = new LinkedList<Path>();
@@ -53,10 +53,12 @@ public class FilesQueue {
 				notEmpty.await();
 			}
 			Path element = null;
-			if (counter.getAndAdd(0) > 0 || allFilesQueued.getAndAdd(0) == 0) {
+			try {
 				element = items.removeFirst();
 				counter.getAndDecrement();
 				notFull.signal();
+			} catch (NoSuchElementException e) {
+				// System.out.println("Searcher no such element");
 			}
 			return element;
 		} finally {
