@@ -1,33 +1,20 @@
 package Wednesday;
+
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Consumer implements Runnable, Callable<Integer> {
 
-	static AtomicInteger mToConsume = new AtomicInteger(0);
-	static int elements = 0;
-
-	static boolean toConsume(int size) {
-		if (size > 0) {
-			if (elements == 0 || mToConsume.getAndAdd(0) >= elements) {
-				elements = size;
-				reset();
-				return true;
-			}
-		}
-		return false;
-	}
-
-	static void reset() {
-		mToConsume.set(0);
-	}
-
 	private Memory<Integer> memory;
 	private int mConsumed;
+	private int elements;
+	private AtomicInteger mToConsume;
 
-	public Consumer(Memory<Integer> drop) {
+	public Consumer(Memory<Integer> drop, AtomicInteger counter, int toConsume) {
 		memory = drop;
 		mConsumed = 0;
+		mToConsume = counter;
+		elements = toConsume;
 	}
 
 	@Override

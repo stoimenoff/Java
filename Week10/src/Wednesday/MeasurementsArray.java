@@ -48,16 +48,21 @@ public class MeasurementsArray extends ArrayList<Measurement> {
 		});
 	}
 
-	public void print() {
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
 		for (Measurement m : this) {
-			System.out.println(m);
+			builder.append(m + "\n");
 		}
+		return builder.toString();
 	}
 	
-	public void printFull() {
+	public String fullString() {
+		StringBuilder builder = new StringBuilder();
 		for (Measurement m : this) {
-			System.out.println(m.getFullInfo());
+			builder.append(m.getFullInfo() + "\n");
 		}
+		return builder.toString();
 	}
 
 }

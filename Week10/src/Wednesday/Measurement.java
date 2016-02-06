@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Measurement implements Comparable<Measurement> {
 	private final int mElements;
-	private final long mTime;
 	private final int mCapacity;
+	private final long mTime;
 	private final int[] mProducersWork;
 	private final int[] mConsumersWork;
 	private final int mAverage;
-	
+
 	public Measurement(int elements, int capacity, int[] producers, int[] consumers, long time, int average) {
 		mTime = time;
 		mElements = elements;
@@ -24,7 +24,7 @@ public class Measurement implements Comparable<Measurement> {
 			mProducersWork[i] = producers[i];
 		}
 	}
-	
+
 	public Measurement(int elements, int capacity, int[] producers, int[] consumers, long time) {
 		this(elements, capacity, producers, consumers, time, 1);
 	}
@@ -91,14 +91,14 @@ public class Measurement implements Comparable<Measurement> {
 		}
 		return mProducersWork[index];
 	}
-	
+
 	public int getConsumerWork(int index) {
 		if (index < 0 || index >= mConsumersWork.length) {
 			throw new IllegalArgumentException();
 		}
 		return mConsumersWork[index];
 	}
-	
+
 	public int getConsumersCount() {
 		return mConsumersWork.length;
 	}
@@ -106,26 +106,26 @@ public class Measurement implements Comparable<Measurement> {
 	public int getCapacity() {
 		return mCapacity;
 	}
-	
+
 	// get average
 
 	public static Measurement getAverage(ArrayList<Measurement> measures) {
 		int size = measures.size();
 		int prodSize = measures.get(0).getProducersCount();
 		int consSize = measures.get(0).getConsumersCount();
-		//check if can get average
+		// check if can get average
 		for (int i = 0; i < size; i++) {
 			if (!canGetAverage(measures.get(0), measures.get(i))) {
 				return null;
 			}
 		}
-		//get average
+		// get average
 		int elements = measures.get(0).getElements();
 		int capacity = measures.get(0).getCapacity();
 		long averageTime = 0;
 		int[] averageProducersWork = new int[prodSize];
 		int[] averageConsumersWork = new int[consSize];
-		
+
 		for (int i = 0; i < size; i++) {
 			averageTime += measures.get(i).getTime();
 			for (int j = 0; j < prodSize; j++) {
@@ -135,7 +135,7 @@ public class Measurement implements Comparable<Measurement> {
 				averageConsumersWork[j] += measures.get(i).getConsumerWork(j);
 			}
 		}
-		
+
 		averageTime /= size;
 		for (int j = 0; j < prodSize; j++) {
 			averageProducersWork[j] /= size;

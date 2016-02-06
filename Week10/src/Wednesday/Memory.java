@@ -22,7 +22,7 @@ public class Memory<T> {
 		mToPut = 0;
 		mToTake = 0;
 		lock = new ReentrantLock(/* true */); // make it true and lose
-												// performance
+												// performance. Fairness is bad
 		notFull = lock.newCondition();
 		notEmpty = lock.newCondition();
 		items = new Object[size];

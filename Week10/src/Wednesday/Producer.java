@@ -5,30 +5,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Producer implements Runnable, Callable<Integer> {
 
-	static AtomicInteger mToProduce = new AtomicInteger(0);
-	static int elements = 0;
-
-	static boolean toProduce(int size) {
-		if (size > 0) {
-			if (elements == 0 || mToProduce.getAndAdd(0) >= elements) {
-				elements = size;
-				reset();
-				return true;
-			}
-		}
-		return false;
-	}
-
-	static void reset() {
-		mToProduce.set(0);
-	}
-
 	private Memory<Integer> memory;
 	private int mProduced;
+	private int elements;
+	private AtomicInteger mToProduce;
 
-	public Producer(Memory<Integer> drop) {
+	public Producer(Memory<Integer> drop, AtomicInteger counter, int toProduce) {
 		memory = drop;
 		mProduced = 0;
+		mToProduce = counter;
+		elements = toProduce;
 	}
 
 	@Override
@@ -41,7 +27,6 @@ public class Producer implements Runnable, Callable<Integer> {
 				// TODO Auto-generated catch block
 			}
 		}
-
 	}
 
 	@Override

@@ -6,6 +6,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.atomic.AtomicInteger;
+//import Friday.BlockingQueue;
 
 public class Tool {
 
@@ -29,23 +31,24 @@ public class Tool {
 
 	public Measurement measure() throws InterruptedException, ExecutionException {
 
-		Producer.toProduce(mElements);
-		Consumer.toConsume(mElements);
-		
 		long start = System.currentTimeMillis();
 
 		ArrayList<Future<Integer>> produced = new ArrayList<Future<Integer>>();
 		ArrayList<Future<Integer>> consumed = new ArrayList<Future<Integer>>();
 
+		AtomicInteger producedElements = new AtomicInteger(0);
+		AtomicInteger consumedElements = new AtomicInteger(0);
+
 		ExecutorService pool = Executors.newFixedThreadPool(mProducersCount + mConsumersCount);
 
 		for (int i = 0; i < mProducersCount; i++) {
-			Callable<Integer> producer = new Producer(memory);
+			Callable<Integer> producer = new Producer(memory, producedElements, mElements);
 			Future<Integer> elementsProduced = pool.submit(producer);
 			produced.add(elementsProduced);
 		}
+
 		for (int i = 0; i < mConsumersCount; i++) {
-			Callable<Integer> consumer = new Consumer(memory);
+			Callable<Integer> consumer = new Consumer(memory, consumedElements, mElements);
 			Future<Integer> elementsConsumed = pool.submit(consumer);
 			consumed.add(elementsConsumed);
 		}
@@ -70,7 +73,7 @@ public class Tool {
 		Measurement m = new Measurement(mElements, mCapacity, producersWork, consumersWork, delta);
 		return m;
 	}
-	
+
 	public Measurement measureAverage(int measurementsCount) throws InterruptedException, ExecutionException {
 		ArrayList<Measurement> measures = new ArrayList<Measurement>();
 		for (int i = 0; i < measurementsCount; i++) {
