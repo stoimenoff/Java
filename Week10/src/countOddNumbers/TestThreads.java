@@ -1,4 +1,4 @@
-package Friday;
+package countOddNumbers;
 
 import java.util.ArrayList;
 import java.util.concurrent.Callable;

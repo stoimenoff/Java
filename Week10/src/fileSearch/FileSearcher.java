@@ -1,4 +1,4 @@
-package FileSearch;
+package fileSearch;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package Wednesday;
+package measurementTool;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
