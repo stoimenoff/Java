@@ -44,5 +44,13 @@ public class AdvancedBlockingQueue<T> implements Memory<T>{
 		T element = mQueues.get(myIndex).take();
 		return element;
 	}
-
+	
+	public int getCapacity() {
+		return mCapacity;
+	}
+	
+	public int getPartitions() {
+		return mParts;
+	}
+	
 }
