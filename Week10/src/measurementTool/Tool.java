@@ -28,7 +28,7 @@ public class Tool {
 		mConsumersCount = cons;
 		mElements = elements;
 		//memory = new ArrayBlockingQueue<Integer>(capacity);
-		memory = new AdvancedBlockingQueue<Integer>(capacity, 4*(prod + cons));
+		memory = new AdvancedBlockingQueue<Integer>(capacity, (prod + cons));
 	}
 
 	public Measurement measure() throws InterruptedException, ExecutionException {

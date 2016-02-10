@@ -10,6 +10,9 @@ import java.nio.file.Paths;
 public class WriteMeasuresToFile {
 
 	public static void write(MeasurementsArray measures) {
+		//sort
+		measures.sortByConsumers();
+		measures.sortByProducers();
 		// write to file
 		Path pathToFile = Paths.get("/home/stoimenoff/Desktop/measure2.txt");
 		BufferedWriter fileWriter = null;

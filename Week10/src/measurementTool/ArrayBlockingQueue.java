@@ -14,7 +14,7 @@ public class ArrayBlockingQueue<T> implements Memory<T>{
 
 	private int mToPut, mToTake, counter;
 
-	ArrayBlockingQueue(int size) {
+	public ArrayBlockingQueue(int size) {
 		if (size <= 0) {
 			throw new IllegalArgumentException();
 		}
