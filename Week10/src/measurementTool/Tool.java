@@ -7,7 +7,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicInteger;
-//import Friday.BlockingQueue;
+
+import advancedBlockingQueue.AdvancedBlockingQueue;
 
 public class Tool {
 
@@ -26,7 +27,8 @@ public class Tool {
 		mProducersCount = prod;
 		mConsumersCount = cons;
 		mElements = elements;
-		memory = new Memory<Integer>(capacity);
+		//memory = new ArrayBlockingQueue<Integer>(capacity);
+		memory = new AdvancedBlockingQueue<Integer>(capacity, 4*(prod + cons));
 	}
 
 	public Measurement measure() throws InterruptedException, ExecutionException {
