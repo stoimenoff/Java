@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
-<fullyQualifiedTypeName name="java.awt.Color"/>
-<fullyQualifiedTypeName name="java.awt.Image"/>
-<fullyQualifiedTypeName name="java.awt.Toolkit"/>
-<fullyQualifiedTypeName name="java.awt.Graphics2D"/>
 <fullyQualifiedTypeName name="org.apache.http.client.HttpClient"/>
 <fullyQualifiedTypeName name="org.apache.http.client.protocol.HttpClientContext"/>
 <fullyQualifiedTypeName name="org.apache.http.impl.client.CloseableHttpClient"/>
@@ -27,12 +22,7 @@
 <fullyQualifiedTypeName name="java.util.regex.Matcher"/>
 <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 <fullyQualifiedTypeName name="webCrawler.AutoCloseableBlockingQueue"/>
-<fullyQualifiedTypeName name="java.net.URL"/>
 <fullyQualifiedTypeName name="webCrawler.CrawlerWorker"/>
-<fullyQualifiedTypeName name="java.util.concurrent.Callable"/>
-<fullyQualifiedTypeName name="java.util.Set"/>
-<fullyQualifiedTypeName name="java.util.concurrent.Future"/>
-<fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="javax.net.ssl.SSLException"/>
 <fullyQualifiedTypeName name="com.sun.jna.platform.win32.WinBase.SYSTEM_INFO"/>
@@ -41,11 +31,8 @@
 <fullyQualifiedTypeName name="java.nio.file.Path"/>
 <fullyQualifiedTypeName name="java.nio.file.Files"/>
 <fullyQualifiedTypeName name="java.io.File"/>
-<fullyQualifiedTypeName name="java.nio.file.Paths"/>
 <fullyQualifiedTypeName name="parallelCopy.BigFilesCopier"/>
 <fullyQualifiedTypeName name="java.util.concurrent.CyclicBarrier"/>
-<fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
-<fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
 <fullyQualifiedTypeName name="parallelCopy.FilesProcessor"/>
 <fullyQualifiedTypeName name="parallelCopy.FilesCopier"/>
 <fullyQualifiedTypeName name="java.util.concurrent.locks.Lock"/>
@@ -56,8 +43,21 @@
 <fullyQualifiedTypeName name="java.util.concurrent.locks.ReentrantLock"/>
 <fullyQualifiedTypeName name="java.util.concurrent.atomic.AtomicInteger"/>
 <fullyQualifiedTypeName name="java.util.concurrent.locks.Condition"/>
-<fullyQualifiedTypeName name="measurementTool.Memory"/>
 <fullyQualifiedTypeName name="advancedBlockingQueue.AdvancedBlockingQueue"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="measurementTool.ArrayBlockingQueue"/>
+<fullyQualifiedTypeName name="measurementTool.Memory"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.util.concurrent.ConcurrentHashMap"/>
+<fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
+<fullyQualifiedTypeName name="secondWebCrawler.LinkTask"/>
+<fullyQualifiedTypeName name="java.util.concurrent.Callable"/>
+<fullyQualifiedTypeName name="java.util.Map.Entry"/>
+<fullyQualifiedTypeName name="java.util.concurrent.Future"/>
+<fullyQualifiedTypeName name="java.util.concurrent.CopyOnWriteArrayList"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.nio.file.Paths"/>
 </qualifiedTypeNameHistroy>
