@@ -8,7 +8,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.regex.Matcher;
@@ -17,13 +17,13 @@ import java.util.regex.Pattern;
 public class LinkTask implements Callable<Pair<URL, Integer>> {
 
 	private ConcurrentHashMap<URL, Integer> loaded;
-	private CopyOnWriteArrayList<Future<Pair<URL, Integer>>> futurePairs;
+	private ConcurrentLinkedQueue<Future<Pair<URL, Integer>>> futurePairs;
 	private ExecutorService pool;
 	private URL link;
 	private String needle;
 
 	public LinkTask(URL l, String n, ExecutorService p, ConcurrentHashMap<URL, Integer> load,
-			CopyOnWriteArrayList<Future<Pair<URL, Integer>>> res) {
+			ConcurrentLinkedQueue<Future<Pair<URL, Integer>>> res) {
 		link = l;
 		loaded = load;
 		futurePairs = res;

@@ -4,7 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -23,8 +23,8 @@ public class SecondCrawler {
 		ExecutorService pool = Executors.newCachedThreadPool();
 		//loaded concurrent hash map holds the URLs that have been given to tasks 
 		ConcurrentHashMap<URL, Integer> loaded = new ConcurrentHashMap<URL, Integer>();
-		//array for the future results
-		CopyOnWriteArrayList<Future<Pair<URL, Integer>>> futurePairs = new CopyOnWriteArrayList<>();
+		//queue for the future results
+		ConcurrentLinkedQueue<Future<Pair<URL, Integer>>> futurePairs = new ConcurrentLinkedQueue<>();
 		//set the root as loaded
 		loaded.put(root, 1);
 		//create the root task
@@ -38,7 +38,7 @@ public class SecondCrawler {
 		Pair<URL, Integer> currentPair = null;
 		
 		while(!futurePairs.isEmpty()) {
-			currentPair = futurePairs.remove(0).get();
+			currentPair = futurePairs.poll().get();
 			if (currentPair.getValue().equals(1)) {
 				results.add(currentPair.getKey());
 			}
