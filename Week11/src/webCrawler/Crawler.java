@@ -12,11 +12,12 @@ import java.util.concurrent.Future;
 public class Crawler {
 	public static void main(String[] args) throws Exception {
 		int threads = 4;
-		AutoCloseableBlockingQueue<URL> urls = new AutoCloseableBlockingQueue<URL>(1000, threads);
-		URL root = new URL("http://abv.bg");
+		AutoCloseableBlockingQueue<URL> urls = new AutoCloseableBlockingQueue<URL>(10000000, threads);
+		//URL root = new URL("http://abv.bg");
+		URL root = new URL("http://ebusiness.free.bg");
 		String rootHost = root.getHost();
 		urls.add(root);
-		String needle = "Създаване";
+		String needle = "Револвираща";
 		
 		ExecutorService pool = Executors.newCachedThreadPool();
 		

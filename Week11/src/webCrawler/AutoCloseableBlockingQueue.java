@@ -34,7 +34,7 @@ public class AutoCloseableBlockingQueue<T> {
 		maxWaitPoll = closingThreads;
 		closed = false;
 	}
-
+	
 	public void add(T element) throws InterruptedException {
 		lock.lock();
 		try {
