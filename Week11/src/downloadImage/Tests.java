@@ -1,4 +1,4 @@
-package monday;
+package downloadImage;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
