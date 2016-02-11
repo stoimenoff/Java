@@ -1,7 +1,0 @@
-package Wednesday;
-
-public class FunnyArraySorter {
-	public static void reverseSort(List<T> list) {
-		
-	}
-}

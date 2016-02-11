@@ -1,6 +1,0 @@
-package Geometry;
-
-public abstract class AbstractPoint extends Point {
-	protected abstract int getID();
-
-}

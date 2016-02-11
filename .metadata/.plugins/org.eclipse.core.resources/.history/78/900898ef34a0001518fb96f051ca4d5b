@@ -1,8 +1,0 @@
-package Geometry;
-
-public class Point {
-	final static int ORIGIN = 0;
-	Point() {
-		
-	}
-}

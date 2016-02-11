@@ -1,7 +1,0 @@
-package Wednesday;
-
-public class BST {
-	class Node {
-		
-	}
-}

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename local variable &apos;digit&apos; in &apos;Calculator.Calculator.getReversePolishNotation(...)&apos; to &apos;number&apos;&#x0A;- Original project: &apos;Week02&apos;&#x0A;- Original element: &apos;Calculator.Calculator.getReversePolishNotation(String).digit&apos;&#x0A;- Renamed element: &apos;digit&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;digit&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;Calculator{Calculator.java[Calculator~getReversePolishNotation~QString;@digit!890!931!904!908!QStringBuilder;!0!false" name="number" references="true" stamp="1448978324771" version="1.0"/>
-</session>
