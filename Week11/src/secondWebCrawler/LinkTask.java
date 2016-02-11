@@ -1,9 +1,6 @@
 package secondWebCrawler;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
@@ -11,8 +8,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class LinkTask implements Callable<Pair<URL, Integer>> {
 
@@ -32,14 +27,14 @@ public class LinkTask implements Callable<Pair<URL, Integer>> {
 	}
 
 	@Override
-	public Pair<URL, Integer> call() throws InterruptedException {
+	public Pair<URL, Integer> call() throws InterruptedException, IOException {
 		System.out.println(link);
 		// get the content
-		String content = getContent(link);
+		String content = HttpContentProvider.getContent(link);
 		// prepare a list of tasks
 		ArrayList<LinkTask> newTasks = new ArrayList<LinkTask>();
 		// iterate through the links on the page
-		for (URL newUrl : getAllLinks(content)) {
+		for (URL newUrl : HttpContentProvider.getAllLinks(content, link)) {
 			// if the link hasn't been loaded, prepare a task for it and mark it
 			// as loaded
 			if (!loaded.containsKey(newUrl)) {
@@ -60,42 +55,6 @@ public class LinkTask implements Callable<Pair<URL, Integer>> {
 			myPair.setValue(1);
 		}
 		return myPair;
-	}
-
-	private String getContent(URL url) {
-		// TODO Insert APACHE code here !!!
-		String inputLine;
-		StringBuilder content = new StringBuilder();
-		try {
-			BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
-			while ((inputLine = reader.readLine()) != null) {
-				content.append(inputLine);
-			}
-			reader.close();
-		} catch (IOException e) {
-			// System.out.println("NIE SME SMOTANI!");
-		}
-		return content.toString();
-	}
-
-	private ArrayList<URL> getAllLinks(String content) {
-		//TODO make a better link filter
-		ArrayList<URL> resultList = new ArrayList<>();
-		String regex = "<a.*?href=\"((?!javascript).*?)\".*?>";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(content);
-		URL newUrl = null;
-		while (matcher.find()) {
-			try {
-				newUrl = new URL(matcher.group(1));
-				if (newUrl.toString().contains(link.getHost()) && !newUrl.toString().contains("#")) {
-					resultList.add(newUrl);
-				}
-			} catch (MalformedURLException e) {
-				// e.printStackTrace();
-			}
-		}
-		return resultList;
 	}
 
 }
