@@ -28,7 +28,8 @@ public final class WeatherAPI {
 					.setPath("/data/2.5/weather")
 					.setParameter("q", city)
 					.setParameter("units", "metric")
-					.setParameter("APPID", "7b28ae98a4eeb03faf9418be1103ae03")
+					//.setParameter("APPID", "7b28ae98a4eeb03faf9418be1103ae03")
+					.setParameter("APPID", "44db6a862fba0b067b1930da0d769e98")
 					.build();
 		String content = null;
 		CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -47,7 +48,6 @@ public final class WeatherAPI {
 		} finally {
 			httpClient.close();
 		}
-		// System.out.println(content);
 		JSONObject json = new JSONObject(content);
 		return json;
 	}
